@@ -32,7 +32,7 @@
     }
 
     // 確認用
-    [class*="l-columns__col"] {
+    @at-root [class*="l-columns__col"] {
         outline: 1px solid orange;
         background-color: rgba(orange, .2);
     }
