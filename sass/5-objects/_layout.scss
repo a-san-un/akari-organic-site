@@ -1,1 +1,61 @@
 // ヘッダー、フッター、ナビゲーションのレイアウト
+
+// コンテナ
+.l-container {
+    padding-inline: 24px; // padding-left, padding-right
+    margin-inline: auto; // margin-left, margin-right
+    // 1160 + 24 + 24 = 1208
+    max-width: 1208px;
+}
+
+// ヘッダー
+.l-header {
+    background-color: var(--white);
+    height: 70px;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    padding-inline: 24px 14px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+
+    &__logo {
+        width: 140px;
+        margin: 0;
+        flex-shrink: 0;
+    }
+
+    &__navBtn {
+        width: 44px;
+        height: 44px;
+        border: none;
+        // background: none;
+        background: yellow;
+        flex-shrink: 0;
+        position: relative;
+    }
+
+    &__navBtn span,
+    &__navBtn::before,
+    &__navBtn::after {
+        content: '';
+        width: 24px;
+        height: 2px;
+        background-color: var(--main-color);
+        display: flex;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        translate: -50% -50%;
+    }
+    &__navBtn::before {
+        top: calc(50% - 9px);
+    }
+    &__navBtn::after {
+        top: calc(50% + 9px);
+    }
+    
+}
