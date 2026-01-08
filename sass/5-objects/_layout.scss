@@ -200,8 +200,31 @@
             color: var(--main-color);
         }
 
+        &__onlineShop {
+            height: 100%;
+        }
+
         &__onlineShopPc {
-            display: block;
+            display: flex;
+            align-items: center;
+            height: 100%;
+            padding-inline: 24px;
+
+            background-color: var(--main-color);
+            color: var(--white);
+            white-space: nowrap;
+
+            &::before {
+                content: '';
+                display: block;
+                width: 24px;
+                height: 24px;
+                background-color: var(--white);
+                mask-image: url(../img/common/icon-shopping-cart.svg);
+                mask-size: contain;
+                mask-repeat: no-repeat;
+                mask-position: center center;
+            }
         }
 
         &__onlineShopSp {

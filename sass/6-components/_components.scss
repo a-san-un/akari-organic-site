@@ -1,0 +1,23 @@
+// コンポーネントスタイル
+
+// ボタン
+// ======================
+.c-btn {
+    display: inline-block;
+    width: 200px;
+    height: 60px;
+    line-height: 60px;
+    text-align: center;
+    font-family: var(--font-family-en);
+    color: var(--text-color);
+    letter-spacing: 0.1em;
+    background-color: var(--white);
+    border: 1px solid var(--gray2);
+
+    // スタイル
+    &--white {
+        border: 1px solid var(--white);
+        background-color: rgba(255 255 255/.2);
+        color: var(--white);
+    }
+}
