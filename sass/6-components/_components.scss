@@ -1,8 +1,9 @@
 // コンポーネントスタイル
-
+@use '../2-tools/mixin' as *;
 // ボタン
 // ======================
 .c-btn {
+    // ボタンの基本スタイル（共通）
     display: inline-block;
     width: 200px;
     height: 60px;
@@ -13,11 +14,225 @@
     letter-spacing: 0.1em;
     background-color: var(--white);
     border: 1px solid var(--gray2);
+    position: relative; // 疑似要素(::after) の配置基準
+    isolation: isolate; // このボタン内だけで重なり順を完結させる
 
-    // スタイル
+    // ホバー時に動く背景レイヤー（上から伸びるメインカラー）
+    &::after {
+        content: '';
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        background-color: var(--main-color);
+        left: 0;
+        top: 0;
+        opacity: 0; // 初期は透明
+        transform: scaleY(0); // 高さ0でつぶしておく
+        transform-origin: center top; // 上端を基準に伸びる
+        z-index: -1; // テキストより背面に配置
+        transition: .3s; // transform と opacity を0.3秒でアニメーション
+    }
+
+    // ボタン全体のホバー時の色変化（文字＋枠線）
+    &:hover {
+        color: var(--white); // 文字色を白に
+        border-color: var(--main-color); // 枠線をメインカラーに
+    }
+
+    // ホバー時に背景レイヤーを表示＆拡大
+    &:hover::after {
+        transform: scaleY(1); // 高さを100%に
+        opacity: 1; // 不透明に
+    }
+
+    // スタイルバリエーション
+    // ----------------------
+
+    // 白ボタン（背景が半透明の白で、アニメーションなし）
     &--white {
         border: 1px solid var(--white);
         background-color: rgba(255 255 255/.2);
         color: var(--white);
+
+        // 白ボタンでは背景アニメーション用の ::after 自体を消す
+        &::after {
+            content: none;
+        }
+
+        // ホバーしても枠線は白のまま（変化させない）
+        &:hover {
+            border-color: var(--white);
+        }
     }
+
+    // アクセントボタン（最初からメインカラーの塗りボタン）
+    &--accent {
+        background-color: var(--main-color);
+        border-color: var(--main-color);
+        color: var(--white);
+        // ベースの ::after は残るので、ホバー時も同色でうっすらアニメが乗る状態
+    }
+
+    // アイコン付きボタンの共通スタイル
+    // ======================
+    &--icon {
+        &::before {
+            content: '';
+            display: inline-block;
+            width: 24px;
+            height: 24px;
+            background-color: var(--text-color); // アイコンの色（マスクに乗る色）
+            margin-right: 8px; // テキストとの間隔
+            mask-position: center center; // マスク画像の位置
+            mask-repeat: no-repeat;
+            mask-size: contain; // マスク画像を枠に収める
+            vertical-align: middle; // テキストと縦位置を揃える
+        }
+    }
+
+    // アイコンの種類ごとのマスク画像指定
+    &--cart {
+        &::before {
+            mask-image: url(../img/common/icon-shopping-cart.svg);
+        }
+    }
+
+    &--outerlink {
+        &::before {
+            mask-image: url(../img/common/icon-outerlink.svg);
+        }
+    }
+
+    &--phone {
+        &::before {
+            mask-image: url(../img/common/icon-phone.svg);
+        }
+    }
+
+    // アイコン付きボタンをホバーしたとき、アイコン色を白に
+    &--icon:hover::before {
+        background-color: var(--white);
+    }
+
+    // ❌ &--icon&--white
+    // Sassの & と補間を使って、複数モディファイアを同時指定したセレクタを作る例
+    &--icon#{&}--white::before {
+        // コンパイル後: .c-btn--icon.c-btn--white::before
+        // 「アイコン付き」かつ「白ボタン」のときのアイコン色を白にする
+        background-color: var(--white);
+    }
+
+    // 「アイコン付き」かつ「アクセントボタン」のときのアイコン色も白に
+    &--icon#{&}--accent::before {
+        // コンパイル後: .c-btn--icon.c-btn--accent::before
+        background-color: var(--white);
+    }
+}
+
+// 見出し
+// ======================
+// セクション見出し
+.c-sectionTitle {
+    // 見出し全体を中央寄せ＆横幅を調整
+    text-align: center;
+    // background-color: yellow; // デバッグ用（今はコメントアウト）
+    display: table;            // 中身の幅に合わせて縮むブロックにするテクニック
+    margin-inline: auto;       // 左右のマージン自動 → 中央配置
+    min-width: 327px;          // 最低幅（左右のラインが潰れすぎないようにするため）
+
+    // 上段の日本語タイトル
+    &__ja {
+        // 日本語タイトルのフォントサイズ・色
+        font-size: 2.4rem;
+        font-weight: 500;
+        color: var(--main-color);  // 緑
+        letter-spacing: .1em;
+        margin-bottom: 5px;
+        display: block;            // span をブロック化して1行扱いに
+    }
+
+    // 下段の英語タイトル ＋ 左右のライン
+    &__en {
+        // 英語サブタイトルのフォント
+        font-family: var(--font-family-en);
+        font-size: 1.4rem;
+        letter-spacing: .1em;
+        display: flex;                 // テキスト＋ラインを横並びにする
+        justify-content: space-between;// 左右にラインを広げる
+        align-items: center;           // 縦方向中央揃え
+        font-weight: 400;
+
+        // 左右の線（flex の両端に伸びる横線）
+        &::before,
+        &::after {
+            content: '';
+            width: 100px;
+            height: 1px;
+            background-color: var(--gray2); // グレーライン
+        }
+        // 真ん中の "Title" テキストはこの before/after の間に来る
+    }
+
+    // スタイル
+    // ----------------------
+    // 白バージョン（c-sectionTitle c-sectionTitle--white）
+    &--white &__ja {
+        // 日本語タイトルを白に
+        color: var(--white);
+    }
+
+    &--white &__en {
+        // 英語タイトルも白に
+        color: var(--white);
+
+        // ラインも白に変更
+        &::before,
+        &::after {
+            background-color: var(--white);
+        }
+    }
+}
+
+// 中見出し
+.c-heading {
+    font-size: 2.2rem;              // 中見出しの文字サイズ
+    font-weight: 500;               // 少し太めのウェイト
+    color: var(--text-color);       // 共通の本文カラーを使用
+    text-align: center;             // モバイルでは中央寄せ
+    position: relative;             // 下線(::after) を絶対配置するための基準にする
+    padding-bottom: 10px;           // 文字と下線の間の余白
+
+
+    &::after {
+        content: '';                // 疑似要素で下線を作る
+        width: 100px;               // 下線の長さ
+        height: 2px;                // 下線の太さ
+        display: block;             // ブロックにして幅・高さを有効に
+        background-color: var(--text-color); // 下線の色（文字と同じ）
+        position: absolute;         // 見出しの中で絶対配置
+        left: 50%;                  // 見出しの中央に配置
+        bottom: 0;                  // 下端に配置
+        translate: -50% 0;          // 左右中央揃えに補正（X方向に半分戻す）
+    }
+
+
+    // デスクトップスタイル（@include mq はメディアクエリ用のmixin）
+    @include mq {
+        text-align: start;          // PCでは左寄せに変更
+
+        &::after {
+            left: 0;                // 下線の基準を左端に変更
+            translate: 0;           // 補正をなくして左揃えに
+        }
+    }
+}
+
+
+// 小見出し
+.c-headingSub {
+    font-size: 1.5rem;                          // 小見出し用の少し小さめの文字サイズ
+    font-weight: 500;                           // 中見出しより少し軽めだが強調は維持
+    padding-block: 12px;                        // 上下に12pxの余白
+    border-top: 1px solid var(--sub-color2);    // 上に細いライン
+    border-bottom: 3px solid var(--sub-color2); // 下に太めのライン
 }
