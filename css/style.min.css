@@ -735,6 +735,7 @@ img {
   .c-footerNav__listItem a {
     color: var(--white);
     font-size: 1.4rem;
+    padding-block: 0;
   }
   .c-footerNav__outerLink::after {
     background-color: var(--white);
