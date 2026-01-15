@@ -207,6 +207,8 @@
         &__onlineShopPc {
             display: flex;
             align-items: center;
+            column-gap: 8px;
+            // gap: 8px;
             height: 100%;
             padding-inline: 24px;
 

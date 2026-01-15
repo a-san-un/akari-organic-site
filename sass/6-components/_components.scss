@@ -236,3 +236,177 @@
     border-top: 1px solid var(--sub-color2);    // 上に細いライン
     border-bottom: 3px solid var(--sub-color2); // 下に太めのライン
 }
+
+// オンラインショップ
+// ======================
+.c-onlineShop {
+    // セクション全体をフレックスコンテナにして、
+    // 中の要素（タイトルやボタン）を縦に並べて中央配置する
+    display: flex;
+    flex-direction: column;          // 子要素を縦方向に並べる
+    align-items: center;             // 子要素を左右中央揃え
+    justify-content: center;         // 子要素を上下中央揃え
+    gap: 40px;                       // 子要素同士の間隔
+
+    // セクションの高さを固定して、横長のバナーのように見せる
+    height: 280px;
+
+    // 背景画像を全面に表示（中央基準でトリミングしつつ、縦横比を保ったままカバー）
+    background: url(../img/common/online-shop.webp) no-repeat center center / cover;
+
+    // 疑似要素(::before) をこの中で絶対配置するための基準
+    position: relative;
+
+    // このセクション内だけで重なり順を完結させる（::before の z-index: -1 を安全に使うため）
+    isolation: isolate;
+
+    // 背景画像の上に乗せる「半透明の色付きレイヤー＋ぼかし」
+    &::before {
+        content: '';                          // 装飾用なので中身は空
+        background-color: rgba(115, 167, 118, .32); // 薄いグリーンのオーバーレイ
+        width: 100%;                          // セクション全体を覆う幅
+        height: 100%;                         // セクション全体を覆う高さ
+        display: block;
+
+        // セクションの左上を基準に、全体をかぶせる
+        position: absolute;
+        left: 0;
+        top: 0;
+
+        // オーバーレイをテキストの背面側に配置
+        z-index: -1;
+
+        // 背景の画像をぼかして、文字を読みやすくする
+        backdrop-filter: blur(8px);
+    }
+}
+
+
+// ページタイトル
+// ======================
+.c-pageTitle {
+    &__heading {
+        background-color: var(--sub-color1);
+        height: 100px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    &__headingText {
+        background: var(--white);
+        min-width: 200px;
+        height: 60px;
+        text-align: center;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        padding-inline: 10px;
+        font-family: var(--font-family-en);
+        font-size: 2rem;
+        font-weight: normal;
+        letter-spacing: .1em;
+        margin-top: 0;
+    }
+
+    &__img {
+        height: 120px;
+
+        img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+    }
+
+    @include mq {
+        &__heading {
+            height: 180px;
+        }
+
+        &__headingText {
+            min-width: 340px;
+            height: 140px;
+            font-size: 3.4rem;
+        }
+
+        &__img {
+            height: 400px;
+        }
+    }
+}
+
+// フッターナビゲーション
+// ======================
+.c-footerNav {
+    background: var(--sub-color1);
+
+    &__list {
+        display: flex;
+        flex-direction: column;
+        padding: 0;
+        margin: 0;
+        list-style: none;
+    }
+
+    &__listItem {
+        text-align: center;
+        border-bottom: 1px solid var(--sub-color2);
+
+        &:last-child {
+            border-bottom: none;
+        }
+
+        a {
+            display: block;
+            padding-block: 10px;
+            font-size: 2rem;
+            font-family: var(--font-family-en);
+            text-transform: uppercase;
+            color: var(--main-color);
+            letter-spacing: .1em;
+        }
+    }
+    &__outerLink {
+        &::after {
+            content:'';
+            display: inline-block;
+            width: 24px;
+            height: 24px;
+            background-color: var(--main-color);
+            mask: url(../img/common/icon-outerlink.svg) no-repeat center center / contain;
+            vertical-align: middle;
+            margin-left: 10px;
+            margin-top: -5px;
+        }
+    }
+
+    @include mq {
+        background-color: var(--gray2);
+        padding-top: 16px;
+
+        &__list {
+            flex-direction: row;
+            justify-content: center;
+            column-gap: 24px;
+        }
+
+        &__listItem {
+            border-bottom: none;
+
+            a {
+                color: var(--white);
+                font-size: 1.4rem;
+            }
+        }
+
+        &__outerLink {
+            &::after {
+                background-color: var(--white);
+                width: 14px;
+                height: 14px;
+                margin-left: 8px;
+            }
+        }
+    }
+}
