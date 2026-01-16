@@ -84,4 +84,35 @@
     &__subSectionLink {
         text-align: center;
     }
+
+    @include mq {
+        &__subSection {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            grid-template-rows: auto auto 1fr;
+            gap: 32px 40px;
+        }
+
+        &__subSectionImg {
+            grid-column: 1 / 2;
+            grid-row: 1 / 4;
+        }
+
+        .c-heading {
+            margin-block: 0;
+        }
+
+        &__subSectionText {
+            margin-block: 0;
+        }
+
+        &__subSectionLink {
+            text-align: start;
+        }
+
+        // オリジナルショップ
+        &__subSection--shop &__subSectionImg {
+            grid-column: 2 / 3;
+        }
+    }
 }
