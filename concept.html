@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="css/style.min.css">
+    <script src="js/script.js" defer></script>
+</head>
+
+<body>
+
+    <header class="l-header">
+        <h1 class="l-header__logo">
+            <a href="index.html">
+                <img src="img/common/logo.webp" alt="AKARI Organic">
+            </a>
+        </h1>
+
+        <button class="l-header__navBtn" type="button">
+            <span></span>
+        </button>
+
+        <nav class="l-header__nav">
+            <button class="l-header__navClose" type="button"></button>
+            <p class="l-header__navLogo">
+                <img src="img/common/logo-menu.webp" alt="AKARI Organic">
+            </p>
+            <ul class="l-header__navList">
+                <li class="l-header__navItem">
+                    <a href="index.html">
+                        <span class="l-header__navItemEn">Home
+                        </span>
+                        <span class="l-header__navItemJa">ホーム</span>
+                    </a>
+                </li>
+                <li class="l-header__navItem">
+                    <a href="concept.html">
+                        <span class="l-header__navItemEn">Concept
+                        </span>
+                        <span class="l-header__navItemJa">コンセプト</span>
+                    </a>
+                </li>
+                <li class="l-header__navItem">
+                    <a href="products.html">
+                        <span class="l-header__navItemEn">Products
+                        </span>
+                        <span class="l-header__navItemJa">製品情報</span>
+                    </a>
+                </li>
+                <li class="l-header__navItem">
+                    <a href="faq.html">
+                        <span class="l-header__navItemEn">FAQ
+                        </span>
+                        <span class="l-header__navItemJa">よくあるご質問</span>
+                    </a>
+                </li>
+                <li class="l-header__navItem">
+                    <a href="shop.html">
+                        <span class="l-header__navItemEn">Shop</span>
+                        <span class="l-header__navItemJa">店舗情報</span>
+                    </a>
+                </li>
+            </ul>
+            <div class="l-header__onlineShop">
+                <a href="#" target="_blank" class="l-header__onlineShopSp">Online Shop</a>
+                <a href="#" target="_blank" class="l-header__onlineShopPc">
+                    Online Shop
+                </a>
+            </div>
+        </nav>
+    </header>
+
+    <main>
+        <!-- c-pageTitleコンポーネントを使用） -->
+        <div class="p-conceptMv">
+            <div class="c-pageTitle">
+                <div class="c-pageTitle__heading">
+                    <h1 class="c-pageTitle__headingText">Concept</h1>
+                </div>
+                <div class="c-pageTitle__img">
+                    <img src="img/concept/page-title-concept.webp" alt="">
+                </div>
+            </div>
+        </div>
+
+        <!-- 成分一覧セクション -->
+        <section class="p-component">
+            <div class="l-container">
+                <h2 class="c-sectionTitle">
+                    <span class="c-sectionTitle__ja">美肌をかなえる8つの成分</span>
+                    <span class="c-sectionTitle__en">Component</span>
+                </h2>
+                <p class="p-component__text">
+                    「肌本来の美しさ」を引き出すために選び抜かれた、14種類の自然由来成分が。<br>
+                    自社農園で大事に栽培し、丁寧にエキスを抽出しています。
+                </p>
+
+                <!-- l-columns グリッドシステムを使用 -->
+                <ul class="l-columns p-component__list" role="list">
+                    <li class="l-columns__col6 l-columns__col3--pc p-component__listItem">
+                        <img src="img/concept/component-chamomile.webp" alt="">
+                        <p class="p-component__listItemLabel">カモミール</p>
+                    </li>
+                    <li class="l-columns__col6 l-columns__col3--pc p-component__listItem">
+                        <img src="img/concept/component-lavender.webp" alt="">
+                        <p class="p-component__listItemLabel">ラベンダー</p>
+                    </li>
+                    <li class="l-columns__col6 l-columns__col3--pc p-component__listItem">
+                        <img src="img/concept/component-apricot.webp" alt="">
+                        <p class="p-component__listItemLabel">アプリコット</p>
+                    </li>
+                    <li class="l-columns__col6 l-columns__col3--pc p-component__listItem">
+                        <img src="img/concept/component-aloe.webp" alt="">
+                        <p class="p-component__listItemLabel">アロエ</p>
+                    </li>
+                    <li class="l-columns__col6 l-columns__col3--pc p-component__listItem">
+                        <img src="img/concept/component-rosemary.webp" alt="">
+                        <p class="p-component__listItemLabel">ローズマリー</p>
+                    </li>
+                    <li class="l-columns__col6 l-columns__col3--pc p-component__listItem">
+                        <img src="img/concept/component-chives.webp" alt="">
+                        <p class="p-component__listItemLabel">チャイブ</p>
+                    </li>
+                    <li class="l-columns__col6 l-columns__col3--pc p-component__listItem">
+                        <img src="img/concept/component-raspberry.webp" alt="">
+                        <p class="p-component__listItemLabel">木苺</p>
+                    </li>
+                    <li class="l-columns__col6 l-columns__col3--pc p-component__listItem">
+                        <img src="img/concept/component-beewax.webp" alt="">
+                        <p class="p-component__listItemLabel">ミツロウ</p>
+                    </li>
+                </ul>
+            </div>
+        </section>
+
+
+        <!-- 4つのお約束セクション -->
+        <section class="p-promise">
+            <div class="l-container">
+                <h2 class="c-sectionTitle">
+                    <span class="c-sectionTitle__ja">4つのお約束</span>
+                    <span class="c-sectionTitle__en">Promise</span>
+                </h2>
+
+                <!-- l-columns グリッドシステムを使用 -->
+                <div class="l-columns p-promise__list">
+                    <!-- お約束1 -->
+                    <!-- col6--pcは6分割のうちの1つを使うという意味 -->
+                    <div class="l-columns__col6--pc">
+                        <div class="p-promise__listItem">
+                            <div class="p-promise__number">1</div>
+                            <h3 class="p-promise__listTitle">作業工程の安全性も確認します。</h3>
+                            <p class="p-promise__listText">
+                                精油のブレンドは熟練で、一つ一つの原料は安全なのに、組み合わせると過剰な化合物や発症するものがあるなど、私たちは業界関係者もちろん、作業工程の安全なものもお客様に適切にお伝えしています。作業工程、工場、製品そのものの安全性をしっかり確認しています。
+                            </p>
+                        </div>
+                    </div>
+
+                    <!-- お約束2 -->
+                    <div class="l-columns__col6--pc">
+                        <div class="p-promise__listItem">
+                            <div class="p-promise__number">2</div>
+                            <h3 class="p-promise__listTitle">成分の95%以上がオーガニック原料。</h3>
+                            <p class="p-promise__listText">
+                                AKARI organicの原材料は、95%以上が定められたオーガニック原料です。また、合成化学物質、合成防腐剤、遺伝子組み換え作物を使用していません。
+                            </p>
+                        </div>
+                    </div>
+
+                    <!-- お約束3 -->
+                    <div class="l-columns__col6--pc">
+                        <div class="p-promise__listItem">
+                            <div class="p-promise__number">3</div>
+                            <h3 class="p-promise__listTitle">環境に配慮した容器や包装を使用。</h3>
+                            <p class="p-promise__listText">
+                                容器包装において、使用後の利便に努める等、可能な限り製品の再製や包装の低減に配慮した素材を使用しています。容器はほとんどサトウキビ由来の成分を使用したバイオPET樹脂を一部使用しています。また、包装への印刷に生分解性のインキを採用しています。
+                            </p>
+                        </div>
+                    </div>
+
+                    <!-- お約束4 -->
+                    <div class="l-columns__col6--pc">
+                        <div class="p-promise__listItem">
+                            <div class="p-promise__number">4</div>
+                            <h3 class="p-promise__listTitle">動物実験は行いません。</h3>
+                            <p class="p-promise__listText">
+                                AKARI
+                                organicでは、外部委託も含め、動物に苦痛を与える動物実験は行いません。皮膚モデルを用いた評価など動物実験の代替手段によって、到達レベルと安全性を確認しております。
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- オンラインショップ -->
+    <section class="c-onlineShop">
+        <h2 class="c-sectionTitle c-sectionTitle--white">
+            <span class="c-sectionTitle__ja">オンラインショップ</span>
+            <span class="c-sectionTitle__en">Online shop</span>
+        </h2>
+        <a href="#" class="c-btn c-btn--white c-btn--icon c-btn--outerlink" target="_blank">Online Shop</a>
+    </section>
+    
+    <nav class="c-footerNav">
+        <ul class="c-footerNav__list">
+            <li class="c-footerNav__listItem"><a href="#">Home</a></li>
+            <li class="c-footerNav__listItem"><a href="#">Concept</a></li>
+            <li class="c-footerNav__listItem"><a href="#">Products</a></li>
+            <li class="c-footerNav__listItem"><a href="#">Faq</a></li>
+            <li class="c-footerNav__listItem"><a href="#">Shop</a></li>
+            <li class="c-footerNav__listItem"><a href="#" target="_blank" class="c-footerNav__outerLink">Online Shop</a>
+            </li>
+        </ul>
+    </nav>
+
+    <footer class="l-footer">
+        <div class="l-footer__logo">
+            <img src="img/common/logo-white.webp" alt="AKARI Organic">
+        </div>
+        <small class="l-footer__copyright">
+            Copyright &copy; AKARI Organic All Rights Reserved.
+        </small>
+    </footer>
+
+</body>
+
+</html>
