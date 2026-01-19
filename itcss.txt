@@ -10,3 +10,29 @@ scss/
 │   ├── _p-hero.scss
 │   └── _p-news-list.scss
 └── 7-trumps/       # (FLOCSS: Utility) 調整用、!important許容
+
+
+scss/
+├── 1-settings/     # 変数、カラーパレット、フォント設定
+│   ├── _variable.scss
+│   └── _index.scss
+├── 2-tools/        # Mixin, Function (CSSは出力しない)
+│   ├── _mixin.scss
+│   └── _index.scss
+├── 3-generic/      # リセットCSS, box-sizing設定
+│   ├── _reset.scss
+│   └── _index.scss
+├── 4-elements/     # (FLOCSS: Foundation) HTML要素への直接指定 html, body, a
+│   ├── _base.scss
+│   └── _index.scss
+├── 5-objects/      # (FLOCSS: Layout) 汎用的な枠組み、グリッド
+│   ├── _layout.scss    # ヘッダー、フッター、コンテナ
+│   ├── _grid.scss      # 12カラムグリッドシステム
+│   └── _index.scss
+├── 6-components/   # (FLOCSS: Component/Project) UIパーツ
+│   ├── _components.scss  # c-btn, c-sectionTitle, c-heading, c-pageTitle など
+│   ├── _p-top.scss       # Topページ固有（p-topMv, p-topConcept, p-topAbout）
+│   ├── _p-common.scss    # 複数ページ共通（p-products）
+│   ├── _p-concept.scss   # Conceptページ固有（p-component, p-promise）
+│   └── _index.scss
+
