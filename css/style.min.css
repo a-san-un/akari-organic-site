@@ -249,6 +249,7 @@ img {
   display: flex;
   justify-content: space-between;
   align-items: center;
+  z-index: 1000;
 }
 .l-header__logo {
   width: 140px;
@@ -259,7 +260,7 @@ img {
   width: 44px;
   height: 44px;
   border: none;
-  background: yellow;
+  background: none;
   flex-shrink: 0;
   position: relative;
 }
@@ -285,11 +286,18 @@ img {
   inset: 0;
   background-color: var(--main-color);
   display: flex;
-  display: none;
   justify-content: center;
   align-items: center;
   flex-direction: column;
+  visibility: hidden;
+  opacity: 0;
+  transition: 0.3s;
 }
+body.is-open .l-header__nav {
+  visibility: visible;
+  opacity: 1;
+}
+
 .l-header__navClose {
   position: absolute;
   right: 16px;
@@ -362,6 +370,8 @@ img {
     flex-grow: 1;
     justify-content: end;
     height: 100%;
+    visibility: visible;
+    opacity: 1;
   }
   .l-header__navClose {
     display: none;
