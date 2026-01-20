@@ -8,57 +8,57 @@
 .p-component {
     // セクション全体の上下余白（SP/PC共通）
     padding-block: 64px;
-    
+
     // 既存コンポーネント（c-sectionTitle）のカスタマイズ
     // 「美肌をかなえる8つの成分 / Component」タイトル部分
     .c-sectionTitle {
-        margin-bottom: 56px;  // タイトルと本文の間隔
+        margin-bottom: 56px; // タイトルと本文の間隔
     }
-    
+
     // リード文のスタイル
     // 「肌本来の美しさ...」のテキスト部分
     &__text {
         font-size: 1.5rem;
         // line-height: 1.7;      // 行間を広く取って読みやすく、_base.scss で適用済み
-        text-align: center;    // 中央揃え
-        margin-bottom: 40px;   // テキストと画像リストの間隔
+        text-align: center; // 中央揃え
+        margin-bottom: 40px; // テキストと画像リストの間隔
     }
-    
+
     // 成分リスト全体のコンテナ
     // ⚠️ HTMLで .l-columns クラスと併用
     &__list {
         // list-style: none;  ← reset.scss で適用済み（role="list"の場合）
-        padding: 0;        // デフォルトのpaddingをリセット
-        margin: 0;         // デフォルトのmarginをリセット
-        
+        padding: 0; // デフォルトのpaddingをリセット
+        margin: 0; // デフォルトのmarginをリセット
+
         // 縦方向の余白
         // 横方向の余白（column-gap）は grid.scss の .l-columns で自動適用
-        row-gap: 24px;     // SP版：縦24px
-        
+        row-gap: 24px; // SP版：縦24px
+
         @include mq {
             row-gap: 40px; // PC版：縦40px（Figma仕様に合わせて修正）
         }
     }
-    
+
     // 各成分アイテム（カモミール、ラベンダーなど）
     // ⚠️ HTMLで .l-columns__col6（SP）と .l-columns__col3--pc（PC）と併用
     &__listItem {
-        text-align: center;  // 画像とラベルを中央揃え
-        
+        text-align: center; // 画像とラベルを中央揃え
+
         // 成分の丸画像
         img {
-            width: 100%;           // 親要素の幅いっぱい
-            border-radius: 50%;    // 正円にする
-            aspect-ratio: 1 / 1;   // 縦横比1:1を強制（正方形）
-            object-fit: cover;     // 画像を切り抜いて円形に収める
-            margin-bottom: 16px;    // 画像とラベルの間隔
+            width: 100%; // 親要素の幅いっぱい
+            border-radius: 50%; // 正円にする
+            aspect-ratio: 1 / 1; // 縦横比1:1を強制（正方形）
+            object-fit: cover; // 画像を切り抜いて円形に収める
+            margin-bottom: 16px; // 画像とラベルの間隔
         }
     }
-    
+
     // 成分名ラベル（「カモミール」「ラベンダー」など）
     &__listItemLabel {
         font-size: 1.5rem;
-        margin: 0;  // デフォルトのpタグmarginをリセット
+        margin: 0; // デフォルトのpタグmarginをリセット
     }
 }
 
@@ -69,12 +69,12 @@
 .p-promise {
     padding-block: 64px;
     background-color: var(--sub-color1);
-    
+
     // c-sectionTitleの余白調整
     .c-sectionTitle {
         margin-bottom: 56px;
     }
-    
+
     // お約束リスト全体
     // HTMLで .l-columns グリッドシステムを使用
     // .l-columns__col6--pc が各カードをラップしている
@@ -82,52 +82,52 @@
         // 縦方向の間隔を row-gap で制御
         // 丸い番号(50px)が上に25pxはみ出すが、row-gapは要素の境界線間の距離なので
         // 視覚的には正しい間隔になる
-        row-gap: 57px;  // SP版：カード間32px
-        
+        row-gap: 32px; // SP版：カード間32px
+
         @include mq {
-            row-gap: 40px;  // PC版：カード間40px
+            row-gap: 40px; // PC版：カード間40px
         }
     }
-    
+
     // 各お約束のカード
     &__listItem {
-        position: relative;              // 番号を配置するための基準点
+        position: relative; // 番号を配置するための基準点
         border: 1px solid var(--main-color);
-        border-radius: 8px;              // 角丸
-        padding: 40px 24px 24px;         // 上部に番号用の余白
+        border-radius: 8px; // 角丸
+        padding: 40px 24px 24px; // 上部に番号用の余白
         background-color: var(--white);
     }
-    
+
     // 番号（丸い部分）
     &__number {
         // カードの上部中央に配置
         position: absolute;
         top: 0;
         left: 50%;
-        transform: translate(-50%, -50%);  // 中央配置 + 半分(25px)上にずらす
-        
+        transform: translate(-50%, -50%); // 中央配置 + 半分(25px)上にずらす
+
         // 丸いスタイル
         width: 50px;
         height: 50px;
-        border-radius: 50%;              // 正円
+        border-radius: 50%; // 正円
         background-color: var(--main-color);
         color: var(--white);
-        
+
         // 数字を中央配置
         display: flex;
         justify-content: center;
         align-items: center;
         font-size: 2rem;
     }
-    
+
     // お約束のタイトル
     &__listTitle {
         margin-bottom: 16px;
         margin-top: 0;
-        color: var(--main-color);        // 緑色のテキスト
-        text-align: center;              // 中央揃え
+        color: var(--main-color); // 緑色のテキスト
+        text-align: center; // 中央揃え
     }
-    
+
     // お約束の本文
     &__listText {
         margin: 0;
