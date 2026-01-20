@@ -82,7 +82,7 @@
         // 縦方向の間隔を row-gap で制御
         // 丸い番号(50px)が上に25pxはみ出すが、row-gapは要素の境界線間の距離なので
         // 視覚的には正しい間隔になる
-        row-gap: 32px;  // SP版：カード間32px
+        row-gap: 57px;  // SP版：カード間32px
         
         @include mq {
             row-gap: 40px;  // PC版：カード間40px

@@ -930,7 +930,7 @@ body.is-open .l-header__nav {
   margin-bottom: 56px;
 }
 .p-promise__list {
-  row-gap: 32px;
+  row-gap: 57px;
 }
 @media screen and (min-width: 768px) {
   .p-promise__list {
