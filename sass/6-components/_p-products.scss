@@ -33,22 +33,18 @@
         text-align: center;
     }
 
-    // ★ SPのカード全体をコンテナから左右24pxずつはみ出させる
-    &__listItemInner {
+    // ★ カードの写真をコンテナから左右24pxずつはみ出させる
+    &__listImgWrap {
         margin-inline: -24px;
     }
 
     // 製品画像（Innerいっぱい = 画面いっぱい）
     &__listImg {
         width: 100%;
-        aspect-ratio: 1.565;
-        object-fit: cover;
-        display: block;
     }
 
     // 製品説明部分のコンテナ
     &__listDescription {
-        line-height: 1.7;
         padding: 24px;
         margin-inline: 24px; // Inner から左右24px内側に戻す
         background-color: rgba(255, 255, 255, 0.7);

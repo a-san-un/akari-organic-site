@@ -989,18 +989,13 @@ body.is-open .l-header__nav {
 .p-productItem__listItem {
   text-align: center;
 }
-.p-productItem__listItemInner {
+.p-productItem__listImgWrap {
   margin-inline: -24px;
 }
 .p-productItem__listImg {
   width: 100%;
-  aspect-ratio: 1.565;
-  -o-object-fit: cover;
-     object-fit: cover;
-  display: block;
 }
 .p-productItem__listDescription {
-  line-height: 1.7;
   padding: 24px;
   margin-inline: 24px;
   background-color: rgba(255, 255, 255, 0.7);
