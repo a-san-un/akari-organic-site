@@ -5,6 +5,7 @@
 html {
     scroll-behavior: smooth; // ページ内リンクする際にアニメーションが適用される
     font-size: 62.5%; // ベースフォントサイズが10pxとして扱われる
+    overflow-x: hidden; // ← この1行を追加！横スクロールを禁止
 }
 
 body {

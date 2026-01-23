@@ -21,6 +21,10 @@
 
         // 縦方向の余白
         row-gap: 40px; // SP版・PC版：縦40px
+
+        @include mq {
+            row-gap: 40px; // PC版：縦40px（Figma仕様に合わせて修正）
+        }
     }
 
     // 各製品アイテム（グリッド用の箱）
@@ -69,46 +73,46 @@
         margin-bottom: 24px;
     }
 
-// ===== PC版（768px以上）=====
-@include mq {
-    &__listItem--alter {
-        display: grid;
-        grid-template-columns: repeat(12, 1fr);
-        gap: calc(var(--col-gap) * 1%);
-        align-items: center;
-    }
-
-    // 画像ラッパー（1カラム目〜8カラム目）
-    &__listImgWrap {
-        margin-left: calc((100% - 100vw) / 2); // 左にはみ出す
-        margin-inline-end: 0;
-        
-        grid-column: 1 / 9;
-        grid-row: 1;
-    }
-
-    // 製品説明部分（7カラム目〜11カラム目）
-    &__listDescription {
-        grid-column: 7 / 12;
-        grid-row: 1;
-        
-        margin-inline: 0; // SP版のmarginをリセット
-        margin-top: 0; // ★ SP版の画像への食い込みをリセット
-        text-align: left;
-    }
-
-    // ===== 偶数番目：画像と説明文の位置を変更 =====
-    &__listItem--alter:nth-child(even) {
-        .p-productItem__listImgWrap {
-            margin-left: auto; // 左のはみ出しをリセット
-            margin-right: calc((100% - 100vw) / 2); // 右にはみ出す
-            
-            grid-column: 5 / 13; // 5カラム目から12カラム目（8カラム分）
+    // ===== PC版（768px以上）=====
+    @include mq {
+        &__listItem__alter {
+            display: grid;
+            grid-template-columns: repeat(12, 1fr);
+            gap: calc(var(--col-gap) * 1%);
+            align-items: center;
         }
-        
-        .p-productItem__listDescription {
-            grid-column: 2 / 7; // 2カラム目から6カラム目（5カラム分）
+
+        // 画像ラッパー（1カラム目〜8カラム目）
+        &__listImgWrap {
+            margin-left: calc((100% - 100vw) / 2); // 左にはみ出す
+            margin-inline-end: 0;
+
+            grid-column: 1 / 9;
+            grid-row: 1;
+        }
+
+        // 製品説明部分（7カラム目〜11カラム目）
+        &__listDescription {
+            grid-column: 7 / 12;
+            grid-row: 1;
+
+            margin-inline: 0; // SP版のmarginをリセット
+            margin-top: 0; // ★ SP版の画像への食い込みをリセット
+            text-align: left;
+        }
+
+        // ===== 偶数番目：画像と説明文の位置を変更 =====
+        &__listItem--alter:nth-child(even) {
+            .p-productItem__listImgWrap {
+                margin-left: auto; // 左のはみ出しをリセット
+                margin-right: calc((100% - 100vw) / 2); // 右にはみ出す
+
+                grid-column: 5 / 13; // 5カラム目から12カラム目（8カラム分）
+            }
+
+            .p-productItem__listDescription {
+                grid-column: 2 / 7; // 2カラム目から6カラム目（5カラム分）
+            }
         }
     }
-}
 }

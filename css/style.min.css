@@ -109,6 +109,7 @@ textarea:not([rows]) {
 html {
   scroll-behavior: smooth;
   font-size: 62.5%;
+  overflow-x: hidden;
 }
 
 body {
@@ -981,6 +982,11 @@ body.is-open .l-header__nav {
   margin: 0;
   row-gap: 40px;
 }
+@media screen and (min-width: 768px) {
+  .p-productItem__list {
+    row-gap: 40px;
+  }
+}
 .p-productItem__listItem {
   text-align: center;
 }
@@ -1013,7 +1019,7 @@ body.is-open .l-header__nav {
   margin-bottom: 24px;
 }
 @media screen and (min-width: 768px) {
-  .p-productItem__listItem--alter {
+  .p-productItem__listItem__alter {
     display: grid;
     grid-template-columns: repeat(12, 1fr);
     gap: calc(var(--col-gap) * 1%);
