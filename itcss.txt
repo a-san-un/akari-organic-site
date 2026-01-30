@@ -21,4 +21,4 @@ scss/
 │   ├── _p-common.scss    # 複数ページ共通（p-products）
 │   ├── _p-concept.scss   # Conceptページ固有（p-component, p-promise）
 │   └── _index.scss
-
+└── style.scss      # メインファイル（全てをインポート）
