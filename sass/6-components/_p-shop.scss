@@ -1,0 +1,156 @@
+// ==========================================================================
+// Project: Shop Page (p-shop)
+// ==========================================================================
+// 店舗情報ページ固有のスタイル
+
+@use '../2-tools/mixin' as *;
+
+.p-shop {
+    padding-block: 64px; // セクション上下余白
+
+    // c-sectionTitleの余白調整
+    .c-sectionTitle {
+        margin-bottom: 56px;
+    }
+
+    // 店舗説明のタイトル
+    // --------------------------------------------------
+    &__descriptionTitle {
+        margin: 0;
+    }
+
+    // 店舗説明のテキスト
+    // --------------------------------------------------
+    &__descriptionText {
+        margin: 0;
+        font-size: 1.5rem;
+        padding-block: 24px;
+    }
+
+    // 電話番号ボタンのコンテナ
+    // --------------------------------------------------
+    &__descriptionContact {
+        text-align: center;
+        margin-bottom: 40px;
+
+        // a要素に直接スタイルを適用
+        a {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 196px;
+            height: 54px;
+            padding: 16px 24px;
+            background-color: var(--sub-color1);
+            border-radius: 8px;
+            border: none;
+            text-decoration: none;
+            color: var(--text-color);
+            font-size: 1.5rem;
+
+            // c-btn--iconのアイコンスタイルを維持
+            &.c-btn--icon::before {
+                background-color: var(--main-color);
+            }
+
+            // ホバー時のアイコン色
+            &.c-btn--icon:hover::before {
+                background-color: var(--white);
+            }
+        }
+    }
+
+    // 詳細情報リスト全体
+    // --------------------------------------------------
+    &__informationDetailList {
+        margin-bottom: 40px;
+    }
+
+    // 店舗詳細情報(dl要素)
+    // --------------------------------------------------
+    &__informationDetail {
+        margin: 0;
+        padding: 0 0 8px 0; // 下に8px
+        border-bottom: 1px solid var(--gray1);
+        font-size: 1.4rem;
+        line-height: 1.7;
+
+        // 項目名(dt要素)
+        dt {
+            margin: 0 0 8px 0; // 下に8px
+            font-weight: 600;
+        }
+
+        // 項目内容(dd要素)
+        dd {
+            margin: 0;
+        }
+
+        // // 最後の項目は下線なし
+        // &:last-child {
+        //     border-bottom: none;
+        // }
+    }
+
+    // 地図画像
+    // --------------------------------------------------
+    &__informationMapImg {
+        margin-bottom: 24px;
+
+        img {
+            width: 100%;
+            height: auto;
+        }
+    }
+
+    // 地図リンク
+    // --------------------------------------------------
+    &__informationMapLink {
+        text-align: center;
+    }
+
+    // --------------------------------------------------
+    // PC版(タブレット・デスクトップ)
+    // --------------------------------------------------
+    @include mq {
+        // 店舗情報全体を2カラムレイアウトに
+        &__information {
+            display: flex;
+            flex-direction: row-reverse; // HTMLの順序を逆転(地図が左、説明が右)
+            gap: 60px;
+        }
+
+        // 電話番号ボタン(PC版は左寄せ)
+        &__descriptionContact {
+            text-align: left;
+        }
+
+        // 店舗詳細情報(PC版は横並び)
+        &__informationDetail {
+            display: flex; // 横並びに変更
+            margin-bottom: 16px; // 線から次の項目まで16px
+            padding-bottom: 8px; // dl内の下余白8px
+
+            // 項目名(dt要素)
+            dt {
+                flex-shrink: 0; // 縮まないように
+                margin: 0 8px 0 0; // 右側に8pxのマージン
+            }
+
+            // 項目内容(dd要素)
+            dd {
+                flex: 1; // 残りのスペースを使う
+            }
+
+            // 最後の項目は下マージンなし
+            &:last-child {
+                margin-bottom: 0;
+            }
+        }
+
+        // 地図リンク(PC版は右寄せ)
+        &__informationMapLink {
+            text-align: right;
+        }
+    }
+}

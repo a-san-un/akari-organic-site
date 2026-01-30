@@ -1,10 +1,10 @@
 :root {
   --base-color: #FDF7F3;
-  --base-color: #FDF7F3;
   --main-color: #73A776;
   --sub-color1: #F0F5F0;
   --gray1: #9A9A9A;
   --gray2: #4C524C;
+  --sub-color1: #F0F5F0;
   --sub-color2: #DAE2DB;
   --text-color: #333333;
   --white: #FFFFFF;
@@ -1206,4 +1206,98 @@ body.is-open .l-header__nav {
   font-size: 1.4rem;
   line-height: 1.7;
   color: var(--text-color);
+}
+
+.p-shop {
+  padding-block: 64px;
+}
+.p-shop .c-sectionTitle {
+  margin-bottom: 56px;
+}
+.p-shop__descriptionTitle {
+  margin: 0;
+}
+.p-shop__descriptionText {
+  margin: 0;
+  font-size: 1.5rem;
+  padding-block: 24px;
+}
+.p-shop__descriptionContact {
+  text-align: center;
+  margin-bottom: 40px;
+}
+.p-shop__descriptionContact a {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 196px;
+  height: 54px;
+  padding: 16px 24px;
+  background-color: var(--sub-color1);
+  border-radius: 8px;
+  border: none;
+  text-decoration: none;
+  color: var(--text-color);
+  font-size: 1.5rem;
+}
+.p-shop__descriptionContact a.c-btn--icon::before {
+  background-color: var(--main-color);
+}
+.p-shop__descriptionContact a.c-btn--icon:hover::before {
+  background-color: var(--white);
+}
+.p-shop__informationDetailList {
+  margin-bottom: 40px;
+}
+.p-shop__informationDetail {
+  margin: 0;
+  padding: 0 0 8px 0;
+  border-bottom: 1px solid var(--gray1);
+  font-size: 1.4rem;
+  line-height: 1.7;
+}
+.p-shop__informationDetail dt {
+  margin: 0 0 8px 0;
+  font-weight: 600;
+}
+.p-shop__informationDetail dd {
+  margin: 0;
+}
+.p-shop__informationMapImg {
+  margin-bottom: 24px;
+}
+.p-shop__informationMapImg img {
+  width: 100%;
+  height: auto;
+}
+.p-shop__informationMapLink {
+  text-align: center;
+}
+@media screen and (min-width: 768px) {
+  .p-shop__information {
+    display: flex;
+    flex-direction: row-reverse;
+    gap: 60px;
+  }
+  .p-shop__descriptionContact {
+    text-align: left;
+  }
+  .p-shop__informationDetail {
+    display: flex;
+    margin-bottom: 16px;
+    padding-bottom: 8px;
+  }
+  .p-shop__informationDetail dt {
+    flex-shrink: 0;
+    margin: 0 8px 0 0;
+  }
+  .p-shop__informationDetail dd {
+    flex: 1;
+  }
+  .p-shop__informationDetail:last-child {
+    margin-bottom: 0;
+  }
+  .p-shop__informationMapLink {
+    text-align: right;
+  }
 }/*# sourceMappingURL=style.min.css.map */
