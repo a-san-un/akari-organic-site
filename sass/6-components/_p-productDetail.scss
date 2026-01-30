@@ -1,0 +1,97 @@
+// 6-components/_p-productDetail.scss
+
+@use "../2-tools/mixin" as *;
+
+// ===== 製品詳細ページ =====
+
+.p-productDetail {
+    padding-block: 64px;
+
+    // c-sectionTitleの余白
+    .c-sectionTitle {
+        margin-bottom: 56px;
+    }
+
+    // ===== 製品画像 =====
+
+    &__img {
+        margin-bottom: 32px;
+
+        img {
+            width: 100%;
+            height: auto;
+        }
+    }
+
+    // ===== 製品情報カード（リード文・タイトル・容量・価格・ボタン） =====
+
+    // リード文
+    &__text {
+        margin-bottom: 24px;
+    }
+
+    // タイトル
+    &__title {
+        margin-bottom: 24px;
+    }
+
+    // タイトル（日本語）
+    &__titleJa {
+        display: block;
+        font-size: 2.2rem;
+        font-weight: 500;
+        margin-bottom: 8px;
+    }
+
+    // タイトル（英語）
+    &__titleEn {
+        display: block;
+        font-size: 1.5rem;
+        font-weight: 500;
+        color: var(--gray1);
+    }
+
+    // 容量
+    &__volume {
+        margin-bottom: 16px;
+    }
+
+    // 価格
+    &__price {
+        font-size: 2.4rem;
+        font-weight: 500;
+        color: var(--main-color);
+        margin-bottom: 32px;
+    }
+
+    // ボタン
+    &__link {
+        text-align: center;
+        margin-bottom: 32px;
+    }
+
+    // ===== PC版 =====
+
+    @include mq {
+        // p-productDetail__listにrow-gapとcolumn-gapを設定
+        &__list {
+            row-gap: 32px; 
+            column-gap: 40px; 
+        }
+
+        // ボタン
+        &__link {
+            text-align: left;
+        }
+
+        // SP版の余白をリセット
+        &__img {
+            margin-bottom: 0;
+        }
+
+        &__description {
+            margin-bottom: 0;
+        }
+    }
+
+}
