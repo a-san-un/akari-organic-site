@@ -1,0 +1,148 @@
+// ==========================================================================
+// Project: FAQ Page (p-faq)
+// ==========================================================================
+// FAQページ固有のスタイル
+// Figmaのクラス名に準拠
+
+@use '../2-tools/mixin' as *;
+
+.p-faq {
+    padding-block: 64px; // セクション上下余白
+
+    // c-sectionTitleの余白調整
+    .c-sectionTitle {
+        margin-bottom: 56px;
+    }
+
+    // リード文（Figmaのクラス名: p-faq__text）
+    // --------------------------------------------------
+    &__text {
+        margin-bottom: 28px; // リストとの余白
+        font-size: 1.5rem; // 15px（本文サイズ）
+        text-align: center; // 中央揃え
+
+        @include mq {
+            // PC版
+            margin-bottom: 32px; // PC版は余白を広く
+        }
+    }
+
+    // FAQリスト（ul要素）
+    // --------------------------------------------------
+    &__list {
+        list-style: none; // デフォルトの箇条書き記号を削除
+        padding: 0; // デフォルトのpaddingをリセット
+        margin: 0; // デフォルトのmarginをリセット
+    }
+
+    // FAQ各アイテム（li要素）（Figmaのクラス名: p-faq__listItem）
+    // --------------------------------------------------
+    &__listItem {
+        margin-bottom: 24px; // アイテム間の余白
+    }
+
+    // 質問のボタン（クリック可能エリア）（Figmaのクラス名: p-faq__listBtn）
+    // --------------------------------------------------
+    &__listBtn {
+        position: relative; // アイコン配置の基準
+        width: 100%; // 親要素いっぱいに広げる
+        min-height: 45px; // 最小高さ45px（アイコンボックスと同じ）
+        background-color: var(--sub-color1); // #F0F5F0（薄緑背景）
+        padding: 0 45px 0 24px; // 左24px、右45px、上下0（中央揃えで調整）
+        border: none; // デフォルトのボーダーを削除
+        cursor: pointer; // クリック可能を示す
+        text-align: left; // テキストを左揃え
+        display: flex; // フレックスボックスで中央揃え
+        align-items: center; // 垂直中央揃え
+
+        @include mq {
+            // PC版
+            min-height: 45px; // PC版も45px
+            padding: 0 45px 0 32px; // 左32px、右45px、上下0
+        }
+    }
+
+    // アイコンのコンテナ（緑のボックス）
+    // --------------------------------------------------
+    &__listBtnIcon {
+        position: absolute;
+        right: 0;
+        top: 0;
+        width: 45px;
+        height: 45px;
+        background-color: var(--main-color); // 緑色のボックス
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        
+        // プラスアイコン（疑似要素で2本の線を作成）
+        &::before,
+        &::after {
+            content: '';
+            width: 24px; // 線の長さ
+            height: 2px; // 線の太さ
+            background-color: var(--white);
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            translate: -50% -50%;
+            transition: rotate 0.3s ease; // 回転のアニメーション
+        }
+        
+        // 縦の線（90度回転）
+        &::before {
+            rotate: 90deg;
+        }
+        
+        // 横の線（回転なし）
+        &::after {
+            rotate: 0deg;
+        }
+    }
+
+    // 開いた状態（JavaScriptで.is-openを付与）
+    // --------------------------------------------------
+    &__listBtn.is-open &__listBtnIcon {
+        // 縦の線を0度に戻す（横線と重なる = マイナスアイコン）
+        &::before {
+            rotate: 0deg;
+        }
+        
+        // 横の線はそのまま
+        &::after {
+            rotate: 0deg;
+        }
+    }
+
+    // 質問のタイトル（h3タグ）（Figmaのクラス名: p-faq__listQTitle）
+    // --------------------------------------------------
+    &__listQTitle {
+        margin: 0; // デフォルトのmarginをリセット
+        font-size: 1.4rem; // 14px（本文サイズ）
+        font-weight: 400; // 通常の太さ
+        line-height: 1.7; // デフォルト行間
+        color: var(--main-color); // #73A776（緑色）
+    }
+
+    // 回答部分のコンテナ（Figmaのクラス名: p-faq__listA）
+    // --------------------------------------------------
+    &__listA {
+        max-height: 0; // 初期状態は非表示
+        overflow: hidden; // はみ出し部分を隠す
+        transition: max-height 0.3s ease; // アコーディオンのアニメーション
+
+        // 開いた状態（JavaScriptで.is-openを付与）
+        &.is-open {
+            max-height: 1000px; // 十分大きな値
+        }
+
+        // 回答文のテキスト
+        p {
+            padding-top: 24px; // 上に余白
+            margin: 0; // デフォルトのmarginをリセット
+            font-size: 1.4rem; // 14px（本文サイズ）
+            line-height: 1.7; // デフォルトの行間
+            color: var(--text-color); // #333
+        }
+    }
+}

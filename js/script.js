@@ -11,14 +11,32 @@ globalNavCloseBtn.addEventListener('click', () => {
     document.body.classList.remove('is-open');
 });
 
-// ドキュメント全体にイベントリスナーを1つだけ設定
+// FAQアコーディオン
+const faqToggles = document.querySelectorAll('.js-faqToggle');
+
+faqToggles.forEach(toggle => {
+    toggle.addEventListener('click', () => {
+        // ボタン自体に.is-openをトグル
+        toggle.classList.toggle('is-open');
+        
+        // 次の兄弟要素（回答部分）を取得
+        const answer = toggle.parentElement.nextElementSibling;
+        
+        // 回答部分に.is-openをトグル
+        if (answer && answer.classList.contains('js-faqBody')) {
+            answer.classList.toggle('is-open');
+        }
+    });
+});
+
+// // FAQアコーディオン
 // document.addEventListener('click', e => {
-//     // クリックされた要素のクラス名をチェック
-//     if (e.target.className === 'l-header__navBtn') {
-//         // 開くボタンがクリックされた場合
-//         document.body.classList.add('is-open');
-//     } else if (e.target.className === 'l-header__navClose') {
-//         // 閉じるボタンがクリックされた場合
-//         document.body.classList.remove('is-open');
+//     if (e.target.closest('.js-faqToggle')) {
+//         const toggle = e.target.closest('.js-faqToggle');
+//         toggle.classList.toggle('is-open');
+        
+//         const answer = toggle.parentElement.nextElementSibling;
+//         answer.classList.toggle('is-open');
 //     }
 // });
+
