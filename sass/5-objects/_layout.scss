@@ -1,15 +1,16 @@
+// ===== 5-objects/_layout.scss =====
 // ヘッダー、フッター、ナビゲーションのレイアウト
+
 @use '../2-tools/mixin' as *;
 
-// コンテナ
+// ===== コンテナ =====
 .l-container {
     padding-inline: 24px; // padding-left, padding-right
     margin-inline: auto; // margin-left, margin-right
-    // 1160 + 24 + 24 = 1208
-    max-width: 1208px;
+    max-width: 1208px; // 1160 + 24 + 24 = 1208
 }
 
-// ヘッダー
+// ===== ヘッダー =====
 .l-header {
     background-color: var(--white);
     height: 70px;
@@ -30,7 +31,7 @@
         flex-shrink: 0;
     }
 
-    // ボタン
+    // ハンバーガーメニューボタン
     &__navBtn {
         width: 44px;
         height: 44px;
@@ -62,27 +63,27 @@
         top: calc(50% + 9px);
     }
 
-    // ナビゲーション
+    // ===== ナビゲーション =====
     &__nav {
         position: fixed;
-        inset: 0; //top, bottom, right, left : 0
+        inset: 0; // top, bottom, right, left: 0
         background-color: var(--main-color);
         display: flex;
         justify-content: center;
         align-items: center;
         flex-direction: column;
-        // place-items: center; // justify-items, align-items : center
         visibility: hidden;
         opacity: 0;
         transition: .3s;
+
+        // ✅ is-openクラスがついた時
+        &.is-open {
+            visibility: visible;
+            opacity: 1;
+        }
     }
 
-    // body.is-open .l-header__nav
-    @at-root body.is-open &__nav {
-        visibility: visible;
-        opacity: 1;
-    }
-
+    // 閉じるボタン
     &__navClose {
         position: absolute;
         right: 16px;
@@ -113,11 +114,13 @@
         rotate: -45deg;
     }
 
+    // ナビゲーション内ロゴ
     &__navLogo {
         width: 110px;
         margin-bottom: 16px;
     }
 
+    // ナビゲーションリスト
     &__navList {
         list-style: none;
         margin: 0;
@@ -154,11 +157,11 @@
         display: none;
     }
 
-    // PC
+    // ===== PC版 =====
     @include mq {
         padding-inline: 16px 0;
 
-        // ボタン
+        // ハンバーガーメニューボタンを非表示
         &__navBtn {
             display: none;
         }
@@ -166,7 +169,6 @@
         // ナビゲーション
         &__nav {
             position: static;
-            // position: initial;
             background-color: transparent;
             flex-direction: row;
             flex-grow: 1;
@@ -194,7 +196,6 @@
 
         &__navItem {
             flex: 0 1 140px;
-            // flex-grow: 0, flex-shrink: 1, flex-basis: 140px
         }
 
         &__navList a {
@@ -219,10 +220,8 @@
             display: flex;
             align-items: center;
             column-gap: 8px;
-            // gap: 8px;
             height: 100%;
             padding-inline: 24px;
-
             background-color: var(--main-color);
             color: var(--white);
             white-space: nowrap;
@@ -244,10 +243,9 @@
             display: none;
         }
     }
-
 }
 
-// フッター
+// ===== フッター =====
 .l-footer {
     background: var(--gray2);
     padding-top: 14px;

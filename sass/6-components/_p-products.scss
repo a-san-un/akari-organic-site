@@ -21,10 +21,6 @@
 
         // 縦方向の余白
         row-gap: 40px; // SP版・PC版：縦40px
-
-        @include mq {
-            row-gap: 40px; // PC版：縦40px（Figma仕様に合わせて修正）
-        }
     }
 
     // 各製品アイテム（グリッド用の箱）
@@ -75,7 +71,7 @@
 
     // ===== PC版（768px以上）=====
     @include mq {
-        &__listItem__alter {
+        &__listItem--alter {
             display: grid;
             grid-template-columns: repeat(12, 1fr);
             gap: calc(var(--col-gap) * 1%);
