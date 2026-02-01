@@ -1012,7 +1012,7 @@ img {
   margin-bottom: 24px;
 }
 @media screen and (min-width: 768px) {
-  .p-productList__listItem--alter {
+  .p-productList__listItem {
     display: grid;
     grid-template-columns: repeat(12, 1fr);
     gap: calc(var(--col-gap) * 1%);
@@ -1032,12 +1032,14 @@ img {
     text-align: left;
   }
   .p-productList__listItem--alter:nth-child(even) .p-productList__listImgWrap {
-    margin-left: auto;
+    margin-left: 0;
     margin-right: calc((100% - 100vw) / 2);
     grid-column: 5/13;
+    grid-row: 1;
   }
   .p-productList__listItem--alter:nth-child(even) .p-productList__listDescription {
     grid-column: 2/7;
+    grid-row: 1;
   }
 }
 
