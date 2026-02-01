@@ -968,75 +968,75 @@ img {
   margin: 0;
 }
 
-.p-productItem {
+.p-productList {
   padding-block: 64px;
 }
-.p-productItem .c-sectionTitle {
+.p-productList .c-sectionTitle {
   margin-bottom: 56px;
 }
-.p-productItem__list {
+.p-productList__list {
   list-style: none;
   padding: 0;
   margin: 0;
   row-gap: 40px;
 }
-.p-productItem__listItem {
+.p-productList__listItem {
   text-align: center;
 }
-.p-productItem__listImgWrap {
+.p-productList__listImgWrap {
   margin-inline: -24px;
 }
-.p-productItem__listImg {
+.p-productList__listImg {
   width: 100%;
   display: block;
 }
-.p-productItem__listDescription {
+.p-productList__listDescription {
   padding: 24px;
   margin-inline: 24px;
   background-color: rgba(255, 255, 255, 0.7);
   position: relative;
   margin-top: -24px;
 }
-.p-productItem__listTitle {
+.p-productList__listTitle {
   font-size: 2.2rem;
   font-weight: 500;
 }
-.p-productItem__listTitleEn {
+.p-productList__listTitleEn {
   font-family: var(--font-family-en);
   padding-bottom: 16px;
   border-bottom: 2px solid var(--text-color);
   margin-bottom: 16px;
 }
-.p-productItem__listText {
+.p-productList__listText {
   text-align: left;
   margin-bottom: 24px;
 }
 @media screen and (min-width: 768px) {
-  .p-productItem__listItem--alter {
+  .p-productList__listItem--alter {
     display: grid;
     grid-template-columns: repeat(12, 1fr);
     gap: calc(var(--col-gap) * 1%);
     align-items: center;
   }
-  .p-productItem__listImgWrap {
+  .p-productList__listImgWrap {
     margin-left: calc((100% - 100vw) / 2);
     margin-inline-end: 0;
     grid-column: 1/9;
     grid-row: 1;
   }
-  .p-productItem__listDescription {
+  .p-productList__listDescription {
     grid-column: 7/12;
     grid-row: 1;
     margin-inline: 0;
     margin-top: 0;
     text-align: left;
   }
-  .p-productItem__listItem--alter:nth-child(even) .p-productItem__listImgWrap {
+  .p-productList__listItem--alter:nth-child(even) .p-productList__listImgWrap {
     margin-left: auto;
     margin-right: calc((100% - 100vw) / 2);
     grid-column: 5/13;
   }
-  .p-productItem__listItem--alter:nth-child(even) .p-productItem__listDescription {
+  .p-productList__listItem--alter:nth-child(even) .p-productList__listDescription {
     grid-column: 2/7;
   }
 }

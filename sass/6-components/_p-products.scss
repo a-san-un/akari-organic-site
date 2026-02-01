@@ -3,7 +3,7 @@
 @use "../2-tools/mixin" as *;
 
 // 製品一覧セクション全体
-.p-productItem {
+.p-productList {
     // セクション全体の上下余白（SP/PC共通）
     padding-block: 64px;
 
@@ -99,14 +99,14 @@
 
         // ===== 偶数番目：画像と説明文の位置を変更 =====
         &__listItem--alter:nth-child(even) {
-            .p-productItem__listImgWrap {
+            .p-productList__listImgWrap {
                 margin-left: auto; // 左のはみ出しをリセット
                 margin-right: calc((100% - 100vw) / 2); // 右にはみ出す
 
                 grid-column: 5 / 13; // 5カラム目から12カラム目（8カラム分）
             }
 
-            .p-productItem__listDescription {
+            .p-productList__listDescription {
                 grid-column: 2 / 7; // 2カラム目から6カラム目（5カラム分）
             }
         }
